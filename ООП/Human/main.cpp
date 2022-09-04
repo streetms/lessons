@@ -2,19 +2,15 @@
 #include "Human.h"
 
 int main() {
-    Human human("Иван",-1,190);
+    Human human("Иван",10,190);
     human.say_hello();
-    std::cout << "enter you age : ";
-    while (true) {
-        try {
-            int age;
-            std::cin >> age;
-            human.set_age(age);
-            break;
-        }
-        catch (std::invalid_argument& ex) {
-            std::cout << "error. " << ex.what() << " : ";
-        }
-    }
+
+    Human human1;
+
+    human1 = human;
+    Human human2 (human1);
+
+    Human human3 (std::move(human));
+    human2 = std::move(human3);
     return 0;
 }
