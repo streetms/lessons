@@ -8,9 +8,8 @@
 
 class Human {
 public:
-    Human(std::string name, int age, int height);
+    Human(std::string_view name, int age, int height);
     Human();
-    int;
     uint get_age();
     uint get_height();
     std::string get_name();

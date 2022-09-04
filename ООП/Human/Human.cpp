@@ -4,7 +4,7 @@
 
 #include "Human.h"
 #include <iostream>
-Human::Human(std::string name, int age, int height) {
+Human::Human(std::string_view name, int age, int height) {
     name_ = name;
     set_age(age);
     height_ = height;
@@ -27,9 +27,10 @@ void Human::say_hello() {
 }
 
 void Human::set_age(int age) {
-    if (age > 0) {
-        age_ = age;
+    if (age <= 0) {
+        throw std::invalid_argument("age <= 0");
     }
+    age_ = age;
 }
 
 Human::Human() {
